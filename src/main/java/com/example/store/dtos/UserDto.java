@@ -21,6 +21,6 @@ public class UserDto {
     //@JsonInclude(JsonInclude.Include.NON_NULL)
     //private String phoneNumber;
 
-    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
-    private LocalDateTime createdAt;
+    //@JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
+    //private LocalDateTime createdAt;
 }
