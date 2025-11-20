@@ -57,6 +57,7 @@ public class CartController {
         }
 
         //var cartItem = cart.getCartItems().stream()
+        /*
         var cartItem = cart.getItems().stream()
                 .filter(item -> item.getProduct().getId().equals(product.getId()))
                 .findFirst()
@@ -72,7 +73,8 @@ public class CartController {
             //cart.getCartItems().add(cartItem);
             cart.getItems().add(cartItem);
 
-        }
+        }*/
+        var cartItem = cart.addItem(product);
 
         cartRepository.save(cart);
 
@@ -104,10 +106,12 @@ public class CartController {
             );
         }
 
+        /*
         var cartItem = cart.getItems().stream()
                 .filter(item -> item.getProduct().getId().equals(productId))
                 .findFirst()
-                .orElse(null);
+                .orElse(null);*/
+        var cartItem = cart.getItem(productId);
         if (cartItem == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     Map.of("error", "Product was not found in the cart.")
